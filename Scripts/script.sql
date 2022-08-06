@@ -72,8 +72,8 @@ where title like '%Analyst%';
 
 --#12 
 select distinct title from data_analyst_jobs
-where title not like '%Analyst%' and title not like '%Analytics%'; 
---26 postings. They either use ANALYST in caps, or the word visualization
+where UPPER(title) not like '%ANALYST%'and upper(title) not like '%ANALYTICS%';
+--4 postings, they use the word visualization
 
 --BONUS  
 select domain, count(title) from data_analyst_jobs
