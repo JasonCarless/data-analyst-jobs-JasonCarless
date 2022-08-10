@@ -66,17 +66,20 @@ order by avg_rating desc;
 --6 companies share an average of 4.199999809 */
 
 --#11 
-select distinct title from data_analyst_jobs
-where title like '%Analyst%'; 
---754 different job titles 
+select distinct title 
+from data_analyst_jobs
+where upper(title) like upper('%Analyst%'); 
+--774 different job titles 
 
 --#12 
-select distinct title from data_analyst_jobs
+select distinct title 
+from data_analyst_jobs
 where UPPER(title) not like '%ANALYST%'and upper(title) not like '%ANALYTICS%';
---4 postings, they use the word visualization
+--4 postings, they are about tableau
 
 --BONUS  
-select domain, count(title) from data_analyst_jobs
+select domain, count(title) 
+from data_analyst_jobs
 where skill like '%SQL%' 
 and domain is not null
 and days_since_posting >21
